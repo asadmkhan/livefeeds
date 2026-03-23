@@ -100,6 +100,7 @@ When a user opens the app:
 - **Tailwind CSS** : quick to work with, good for getting a clean UI without writing a lot of custom CSS
 - **No database** : the assignment said local storage was fine so I kept it simple with in-memory image list and files on disk
 - **Frontend filtering** : since the dataset is small, filtering by tags and search happens on the frontend without extra API calls
+- **Basic caching** : added Cache-Control header to GET /api/images so the browser caches the image list for 15 seconds between refreshes
 
 ---
 

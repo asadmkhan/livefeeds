@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"livefeeds/backend/config"
 	"livefeeds/backend/constants"
 	"livefeeds/backend/data"
 	"livefeeds/backend/models"
@@ -18,6 +19,7 @@ func init() {
 
 func GetImageList(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", config.CacheMaxAge)
 	encErr := json.NewEncoder(w).Encode(ImageList)
 
 	if encErr != nil {

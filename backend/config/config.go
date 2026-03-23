@@ -6,4 +6,5 @@ const (
 	BackendURL    = "http://localhost:8010"
 	MaxUploadSize = 10 << 20
 	AllowedOrigin = "*"
+	CacheMaxAge   = "max-age=15, must-revalidate"
 )
