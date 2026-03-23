@@ -1,0 +1,24 @@
+services:
+  livefeeds-api:
+    build: ./backend
+    container_name: livefeeds-api
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+    environment:
+      - PORT=8010
+    volumes:
+      - ./backend/UploadedImages:/livefeeds/UploadedImages
+
+  livefeeds-ui:
+    build:
+      context: ./frontend
+      args:
+        VITE_BACKEND_URL: http://localhost:8010
+        VITE_WS_URL: ws://localhost:8010
+    container_name: livefeeds-ui
+    restart: unless-stopped
+    ports:
+      - "3010:80"
+    depends_on:
+      - livefeeds-api

@@ -1,0 +1,9 @@
+package config
+
+const (
+	Port          = ":8010"
+	UploadFolder  = "UploadedImages"
+	BackendURL    = "http://localhost:8010"
+	MaxUploadSize = 10 << 20
+	AllowedOrigin = "*"
+)
