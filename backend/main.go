@@ -29,22 +29,6 @@ func main() {
 		http.StripPrefix("/"+config.UploadFolder+"/",
 			http.FileServer(http.Dir(config.UploadFolder))))
 
-	apiRouter.HandleFunc("/docs", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "text/html")
-		w.Write([]byte(`
-        <!DOCTYPE html>
-        <html>
-        <body>
-            <h1>LiveFeeds API</h1>
-            <h2>GET /api/images</h2>
-            <p>Returns all images</p>
-            <h2>POST /api/uploads</h2>
-            <p>Upload a new image</p>
-        </body>
-        </html>
-    `))
-	})
-
 	handler := corsMiddleware(apiRouter)
 	if listenError := http.ListenAndServe(config.Port, handler); listenError != nil {
 		log.Fatal("Error starting server:", listenError)
