@@ -6,6 +6,8 @@ import (
 	"livefeeds/backend/config"
 	"livefeeds/backend/constants"
 	"livefeeds/backend/models"
+	"livefeeds/backend/utils"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -56,6 +58,11 @@ func (h *Hub) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	if copyError != nil {
 		http.Error(w, constants.ErrorFileCopy, http.StatusInternalServerError)
 		return
+	}
+
+	normalizeErr := utils.NormalizeImage(localPath)
+	if normalizeErr != nil {
+		log.Println("normalise failed:", normalizeErr)
 	}
 
 	imageURL := fmt.Sprintf("%s/%s/%s", config.BackendURL, config.UploadFolder, handler.Filename)

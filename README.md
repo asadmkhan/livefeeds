@@ -101,6 +101,7 @@ When a user opens the app:
 - **No database** : the assignment said local storage was fine so I kept it simple with in-memory image list and files on disk
 - **Frontend filtering** : since the dataset is small, filtering by tags and search happens on the frontend without extra API calls
 - **Basic caching** : added Cache-Control header to GET /api/images so the browser caches the image list for 15 seconds between refreshes
+- **Image normalisation** : uploaded images are resized to a max width of 1200px using golang.org/x/image
 
 ---
 
@@ -124,8 +125,7 @@ have been done but it would take more time.
 - Persist uploaded image metadata to disk so the list survives server restarts
 - Better UI : there are a few rough edges I'd clean up given more time
 - Proper CSS organisation : right now styles are inline Tailwind classes, I'd move towards a more structured approach
-- More unit tests for backend apis
-- Image normalisation on upload (resize, compress)
+- More unit tests covering the Go handlers
 
 ---
 

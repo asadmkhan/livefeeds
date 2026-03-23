@@ -7,4 +7,5 @@ const (
 	MaxUploadSize = 10 << 20
 	AllowedOrigin = "*"
 	CacheMaxAge   = "max-age=15, must-revalidate"
+	ImageMaxWidth = 1200
 )
