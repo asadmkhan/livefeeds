@@ -10,7 +10,7 @@ A small Instagram-like image feed app. Users can upload images and anyone connec
 I had no prior experience with Go before this project. I picked it up for this assignment because I like learning new things and it seemed like a solid choice for a statically typed backend. There's definitely still a lot for me to learn about it.
 
 **Frontend:** React + TypeScript + Tailwind CSS + Vite
-React made sense for a project this size , it's lightweight and gets you moving fast. I've used Tailwind before so it was the quickest way to put together a decent UI. Icons are from lucide-react.
+React made sense for a project this size , it's lightweight and gets you moving fast. I've used Tailwind before so it was the quickest way to put together a decent UI. Icons are from lucide-react. Tests written with Vitest and React Testing Library.
 
 ---
 
@@ -41,6 +41,13 @@ npm run dev
 ```
 
 App runs on `http://localhost:3010`
+
+### Running Tests
+
+```bash
+cd frontend
+npm test
+```
 
 ---
 
@@ -116,7 +123,7 @@ have been done but it would take more time.
 - Persist uploaded image metadata to disk so the list survives server restarts
 - Better UI : there are a few rough edges I'd clean up given more time
 - Proper CSS organisation : right now styles are inline Tailwind classes, I'd move towards a more structured approach
-- Unit tests for the Go handlers and React components
+- More unit tests for backend apis
 - Image normalisation on upload (resize, compress)
 
 ---
